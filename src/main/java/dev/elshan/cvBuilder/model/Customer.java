@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer")
@@ -30,18 +31,32 @@ public class Customer {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private Country country;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
     private City city;
 
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @Column(name = "summary")
     private String summary;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<EmploymentHistory> employmentHistory;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<EducationHistory> educationHistory;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<WebsiteLinks> websiteLinks;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Skill> skills;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Language> languages;
 }

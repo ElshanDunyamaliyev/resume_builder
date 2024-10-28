@@ -1,7 +1,6 @@
 package dev.elshan.cvBuilder.model;
 
 import dev.elshan.cvBuilder.model.enums.LanguageLevel;
-import dev.elshan.cvBuilder.model.enums.SkillLevel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +22,7 @@ public class Language {
     @Column(name = "name")
     private String name;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "level")
     private LanguageLevel level;
 }

@@ -22,7 +22,7 @@ public class Skill {
     @Column(name = "name")
     private String name;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "level")
     private SkillLevel level;
 }
