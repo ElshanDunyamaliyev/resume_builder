@@ -1,5 +1,6 @@
 package dev.elshan.cvBuilder.model;
 
+import dev.elshan.cvBuilder.model.enums.SkillLevel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,12 +8,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "website_links")
+@Table(name = "skill")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class WebsiteLinks {
+public class Skill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,7 @@ public class WebsiteLinks {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "link")
-    private String link;
-
+    @Enumerated
+    @Column(name = "level")
+    private SkillLevel level;
 }
