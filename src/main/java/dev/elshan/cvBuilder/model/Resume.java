@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "resume")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Customer {
+public class Resume {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,32 +31,33 @@ public class Customer {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id")
-    private Country country;
+    @Column(name = "country")
+    private String country;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "city_id")
-    private City city;
+    @Column(name = "city")
+    private String city;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @Column(name = "summary")
+    @Column(name = "job_title")
+    private String jobTitle;
+
+    @Column(name = "summary", length = 1000)
     private String summary;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<EmploymentHistory> employmentHistory;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<EducationHistory> educationHistory;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<WebsiteLinks> websiteLinks;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Skill> skills;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Language> languages;
 }
