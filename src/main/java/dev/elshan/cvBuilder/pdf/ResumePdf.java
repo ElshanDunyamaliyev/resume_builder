@@ -201,7 +201,6 @@ public class ResumePdf {
             table.addCell(rightCell);
         });
 
-// Set spacing before the table (if needed)
         table.setSpacingBefore(10);
         return table;
     }
