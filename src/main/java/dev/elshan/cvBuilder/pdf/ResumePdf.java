@@ -194,14 +194,10 @@ public class ResumePdf {
             rightCell.setHorizontalAlignment(Element.ALIGN_LEFT);
             rightCell.setBorder(PdfPCell.NO_BORDER);
 
-//            leftCell.setVerticalAlignment(Element.ALIGN_JUSTIFIED);
-//            rightCell.setVerticalAlignment(ALIGN_TOP);
-
             table.addCell(leftCell);
             table.addCell(rightCell);
         });
 
-// Set spacing before the table (if needed)
         table.setSpacingBefore(10);
         return table;
     }
